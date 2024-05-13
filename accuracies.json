@@ -1,0 +1,26 @@
+{
+    "decision_tree": {
+        "train": 0.9998143442290064,
+        "test": 0.9973196881091618
+    },
+    "decision_tree_tuned": {
+        "train": 0.9989672897738481,
+        "test": 0.9975092051115443
+    },
+    "gradient_boosting": {
+        "train": 0.999315394344461,
+        "test": 0.9975092051115443
+    },
+    "ada_boosting": {
+        "train": 0.9998143442290064,
+        "test": 0.9984026424084904
+    },
+    "ada_boosting_tuned": {
+        "train": 0.9998143442290064,
+        "test": 0.99848386398094
+    },
+    "gradient_boosting_tuned": {
+        "train": 0.9998143442290064,
+        "test": 0.9980506822612085
+    }
+}
