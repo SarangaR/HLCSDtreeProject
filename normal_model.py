@@ -11,7 +11,7 @@ import sklearn.metrics
 import preprocessing as pp
 
 from sklearn.experimental import enable_halving_search_cv
-from sklearn.model_selection import RandomizedSearchCV, GridSearchCV, HalvingGridSearchCV
+from sklearn.model_selection import RandomizedSearchCV, GridSearchCV, HalvingGridSearchCV, HalvingRandomSearchCV
 
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, HistGradientBoostingClassifier
@@ -36,9 +36,9 @@ joblib.dump(clf, "decision_tree.pkl")
 
 ## hyperparameter tuning
 
-params_grid = { 'criterion': ['gini', 'entropy'], 'max_depth': range(4, 40), 'max_leaf_nodes': range(1000, 20000, 1000), 'min_samples_leaf': range(20, 100), 'min_samples_split': range(40, 200) }
+params_grid = { 'criterion': ['gini', 'entropy'], 'max_depth': randint(4, 40), 'max_leaf_nodes': randint(1000, 20000), 'min_samples_leaf': randint(1, 40), 'min_samples_split': randint(1, 40) }
 
-search = HalvingGridSearchCV(clf, params_grid, n_jobs=-1, random_state=42, verbose=1)
+search = HalvingRandomSearchCV(clf, params_grid, n_jobs=-1, random_state=42, verbose=3, aggressive_elimination=True)
 search.fit(X_train, y_train)
 clf_tuned = search.best_estimator_
 
